@@ -1,0 +1,12 @@
+Am utilizat o metoda pe care o consider optima
+pentru transformarile unix timestamp - data si ora, si anume aritmetica modulara.
+Extragand numarul de secunde in diferite unitati de timp (minute, ore, zile) pot determina
+cate astfel de unitati au trecut dintr-un moment sau in care moment de nivel inferior ne aflam 
+(Spre exemplu impartirea modulo 60 a timestampului ne da secunda in care ne aflam).
+
+Introducerea anilor bisecti introduce unele probleme, in special in cadrul calendarului gregorian,
+dar si acestea pot fi rezolvate prin aritmetica modulara.
+
+Am decis sa utilizez un algoritm de verificare liniara a fiecarei ore intre 00:00 1 ianuarie 1970 si
+23:00 31 decembrie 2050 , incercand sa plasez evenimentul incepand cu aceaste ora, si apoi determinand daca 
+destule persoane pot fi prezente la eveniment. Aceasta rezolvare greedy asigura faptul ca daca gasesc un interval optim, acesta va fi primul (indiferent de cate persoane sunt disponibile, atata timp cat sunt destule).
